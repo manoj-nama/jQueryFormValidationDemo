@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jquery Validation Testing</title>
+	<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+	<div id="cont">
+		<h2>Jquery Form Validation </h2>
+		<form action="" id="frm">
+
+			<label for="userid">user id</label>
+			<input type="text" name="userid" id="userid"/>
+
+			<label for="password">password</label>
+			<input type="password" name="password" id="password"/>
+
+			<label for="cpassword">confirm password</label>
+			<input type="password" name="cpassword" id="cpassword"/>
+
+			<label for="salute">Salutation</label>
+			<select type="text" name="salute" id="salute">
+				<option value="">--SELECT--</option>
+				<option value="1">Dr.</option>
+				<option value="2">Mr.</option>
+				<option value="3">Ms.</option>
+			</select>
+
+			<label for="fname">first name</label>
+			<input type="text" name="fname" id="fname"/>
+
+			<label for="mname">middle name</label>
+			<input type="text" name="mname" id="mname"/>
+
+			<label for="lname">last name</label>
+			<input type="text" name="lname" id="lname"/>
+			
+			<label for="email">email id</label>
+			<input type="text" name="email" id="email"/>
+			
+			<label for="contactno">contact no</label>
+			<input type="text" name="contactno" id="contactno">
+			
+			<div id="actions">
+				<input type="submit" value="submit" id="submit" >
+			</div>
+			
+		</form>
+	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.easyui.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+
+	<script type="text/javascript">
+	
+		$('#userid').validatebox({
+			required: true,
+			validType: ['alphaspecial','minLength[6]']
+		});
+		$('#password').validatebox({
+			required: true,
+			validType: 'minLength[6]'
+		});
+		$('#cpassword').validatebox({
+			required: true,
+			validType: 'equals[\'#password\']'
+		});
+		$('#contactno').validatebox({
+			required: true,
+			validType: 'contactno'
+		});
+		$('#email').validatebox({
+			required: true,
+			validType: 'email'
+		});
+		$('#fname').validatebox({
+			required: true,
+			validType: 'alpha'
+		});
+		$('#mname').validatebox({
+			validType: 'alpha'
+		});
+		$('#lname').validatebox({
+			required: true,
+			validType: 'alpha'
+		});
+		$('#salute').validatebox({
+			required: true
+		});
+	</script>
+</body>
+</html>
